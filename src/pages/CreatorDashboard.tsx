@@ -31,9 +31,9 @@ const CreatorDashboard = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white p-8">
+    <div className="min-h-screen bg-gray-950 text-white p-4 sm:p-8">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center mb-8 space-x-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center mb-6 sm:mb-8 gap-4 sm:gap-0">
           <Button 
             variant="ghost" 
             className="text-white hover:text-gray-300"
@@ -42,15 +42,15 @@ const CreatorDashboard = () => {
             <ChevronLeft className="h-5 w-5 mr-1" />
             Back
           </Button>
-          <div className="flex-1 flex justify-between items-center">
-            <h1 className="text-3xl font-bold">Creator Dashboard</h1>
-            <Button className="bg-pink-600 hover:bg-pink-700">
+          <div className="flex-1 flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 sm:gap-0">
+            <h1 className="text-2xl sm:text-3xl font-bold">Creator Dashboard</h1>
+            <Button className="w-full sm:w-auto bg-pink-600 hover:bg-pink-700">
               Find Projects
             </Button>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {MOCK_VIDEOS.map((video) => (
             <VideoCard key={video.id} video={video} isVisible={true} />
           ))}
