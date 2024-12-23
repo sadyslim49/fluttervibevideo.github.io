@@ -37,7 +37,7 @@ const CreatorDashboard = () => {
           <Button 
             variant="ghost" 
             className="text-white hover:text-gray-300"
-            onClick={() => navigate(-1)}
+            onClick={() => navigate('/')}
           >
             <ChevronLeft className="h-5 w-5 mr-1" />
             Back
