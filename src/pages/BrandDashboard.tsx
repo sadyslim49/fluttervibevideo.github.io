@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
+import { Plus, ChevronLeft } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
+import { useNavigate } from "react-router-dom";
 
 // Mock data for demonstration
 const MOCK_PROJECTS = [
@@ -23,17 +24,29 @@ const MOCK_PROJECTS = [
 ];
 
 const BrandDashboard = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen bg-gray-950 text-white p-8">
+    <div className="min-h-screen bg-gray-950 text-white p-4 sm:p-8">
       <div className="max-w-6xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Brand Dashboard</h1>
-          <Button className="bg-blue-600 hover:bg-blue-700">
-            <Plus className="mr-2 h-4 w-4" /> Create New Project
+        <div className="flex flex-col sm:flex-row items-start sm:items-center mb-6 sm:mb-8 gap-4 sm:gap-0">
+          <Button 
+            variant="ghost" 
+            className="text-white hover:text-gray-300"
+            onClick={() => navigate('/')}
+          >
+            <ChevronLeft className="h-5 w-5 mr-1" />
+            Back
           </Button>
+          <div className="flex-1 flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 sm:gap-0">
+            <h1 className="text-2xl sm:text-3xl font-bold">Brand Dashboard</h1>
+            <Button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700">
+              <Plus className="mr-2 h-4 w-4" /> Create New Project
+            </Button>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {MOCK_PROJECTS.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
