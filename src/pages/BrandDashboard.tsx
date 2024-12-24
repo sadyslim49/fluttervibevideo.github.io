@@ -40,7 +40,10 @@ const BrandDashboard = () => {
           </Button>
           <div className="flex-1 flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 sm:gap-0">
             <h1 className="text-2xl sm:text-3xl font-bold">Brand Dashboard</h1>
-            <Button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700">
+            <Button 
+              className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700"
+              onClick={() => navigate('/create-project')}
+            >
               <Plus className="mr-2 h-4 w-4" /> Create New Project
             </Button>
           </div>

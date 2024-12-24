@@ -44,7 +44,10 @@ const CreatorDashboard = () => {
           </Button>
           <div className="flex-1 flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 sm:gap-0">
             <h1 className="text-2xl sm:text-3xl font-bold">Creator Dashboard</h1>
-            <Button className="w-full sm:w-auto bg-pink-600 hover:bg-pink-700">
+            <Button 
+              className="w-full sm:w-auto bg-pink-600 hover:bg-pink-700"
+              onClick={() => navigate('/find-projects')}
+            >
               Find Projects
             </Button>
           </div>

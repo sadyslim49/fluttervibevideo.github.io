@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import BrandDashboard from "./pages/BrandDashboard";
 import CreatorDashboard from "./pages/CreatorDashboard";
 import ProjectDetails from "./pages/ProjectDetails";
+import CreateProject from "./pages/CreateProject";
+import FindProjects from "./pages/FindProjects";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +23,8 @@ const App = () => (
           <Route path="/brand/dashboard" element={<BrandDashboard />} />
           <Route path="/creator/dashboard" element={<CreatorDashboard />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
+          <Route path="/create-project" element={<CreateProject />} />
+          <Route path="/find-projects" element={<FindProjects />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

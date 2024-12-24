@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Upload } from "lucide-react";
+import { Upload, ChevronLeft } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 // Mock data for demonstration
@@ -22,6 +22,7 @@ const PROJECT_DETAILS = {
 
 const ProjectDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { toast } = useToast();
 
   const handleSubmission = () => {
@@ -43,6 +44,15 @@ const ProjectDetails = () => {
   return (
     <div className="min-h-screen bg-gray-950 text-white p-8">
       <div className="max-w-4xl mx-auto">
+        <Button 
+          variant="ghost" 
+          className="text-white hover:text-gray-300 mb-6"
+          onClick={() => navigate(-1)}
+        >
+          <ChevronLeft className="h-5 w-5 mr-1" />
+          Back
+        </Button>
+        
         <h1 className="text-3xl font-bold mb-6">{PROJECT_DETAILS.title}</h1>
         
         <div className="bg-gray-900 rounded-lg p-6 mb-8">
