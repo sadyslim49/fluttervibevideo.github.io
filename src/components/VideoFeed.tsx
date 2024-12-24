@@ -29,6 +29,8 @@ const VideoFeed = () => {
   const { toast } = useToast();
 
   const handleScroll = (e: React.WheelEvent) => {
+    e.preventDefault();
+    
     if (e.deltaY > 0 && currentVideoIndex < MOCK_VIDEOS.length - 1) {
       setCurrentVideoIndex(prev => prev + 1);
     } else if (e.deltaY < 0 && currentVideoIndex > 0) {
@@ -53,9 +55,12 @@ const VideoFeed = () => {
   };
 
   return (
-    <div className="h-screen w-full bg-tiktok-dark overflow-hidden relative" onWheel={handleScroll}>
+    <div 
+      className="h-screen w-full bg-tiktok-dark overflow-hidden relative snap-y snap-mandatory"
+      onWheel={handleScroll}
+    >
       <div 
-        className="transition-transform duration-500"
+        className="transition-transform duration-500 ease-out"
         style={{ transform: `translateY(-${currentVideoIndex * 100}%)` }}
       >
         {MOCK_VIDEOS.map((video, index) => (

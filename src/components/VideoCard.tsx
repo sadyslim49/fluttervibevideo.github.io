@@ -61,17 +61,26 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
 
       {/* Interaction buttons */}
       <div className="absolute right-4 bottom-20 flex flex-col gap-4">
-        <Button variant="ghost" size="icon" className="rounded-full bg-black/20 hover:bg-black/40">
-          <Heart className="h-6 w-6 text-white" />
+        <div className="flex flex-col items-center">
+          <Button variant="ghost" size="icon" className="rounded-full bg-black/50 hover:bg-black/70 w-12 h-12">
+            <Heart className="h-6 w-6 text-white" />
+          </Button>
           <span className="text-xs text-white mt-1">{video.likes}</span>
-        </Button>
-        <Button variant="ghost" size="icon" className="rounded-full bg-black/20 hover:bg-black/40">
-          <MessageCircle className="h-6 w-6 text-white" />
+        </div>
+        
+        <div className="flex flex-col items-center">
+          <Button variant="ghost" size="icon" className="rounded-full bg-black/50 hover:bg-black/70 w-12 h-12">
+            <MessageCircle className="h-6 w-6 text-white" />
+          </Button>
           <span className="text-xs text-white mt-1">{video.comments}</span>
-        </Button>
-        <Button variant="ghost" size="icon" className="rounded-full bg-black/20 hover:bg-black/40">
-          <Share2 className="h-6 w-6 text-white" />
-        </Button>
+        </div>
+        
+        <div className="flex flex-col items-center">
+          <Button variant="ghost" size="icon" className="rounded-full bg-black/50 hover:bg-black/70 w-12 h-12">
+            <Share2 className="h-6 w-6 text-white" />
+          </Button>
+          <span className="text-xs text-white mt-1">Share</span>
+        </div>
       </div>
     </div>
   );
