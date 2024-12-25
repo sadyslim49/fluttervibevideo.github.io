@@ -2,29 +2,25 @@ import { Button } from "@/components/ui/button";
 import { Plus, ChevronLeft } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-// Mock data for demonstration
-const MOCK_PROJECTS = [
-  {
-    id: "1",
-    title: "Summer Collection Promo",
-    budget: 1000,
-    submissions: 5,
-    status: "active",
-    deadline: "2024-05-01",
-  },
-  {
-    id: "2",
-    title: "Product Launch Video",
-    budget: 1500,
-    submissions: 3,
-    status: "review",
-    deadline: "2024-04-15",
-  },
-];
+interface Project {
+  id: string;
+  title: string;
+  budget: number;
+  submissions: number;
+  status: string;
+  deadline: string;
+}
 
 const BrandDashboard = () => {
   const navigate = useNavigate();
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const storedProjects = JSON.parse(localStorage.getItem('projects') || '[]');
+    setProjects(storedProjects);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-950 text-white p-4 sm:p-8">
@@ -49,11 +45,17 @@ const BrandDashboard = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          {MOCK_PROJECTS.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
+        {projects.length === 0 ? (
+          <div className="text-center text-gray-400 mt-8">
+            No projects yet. Create your first project!
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

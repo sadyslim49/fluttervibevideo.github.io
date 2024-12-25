@@ -3,9 +3,39 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 const CreateProject = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    
+    const newProject = {
+      id: crypto.randomUUID(),
+      title: formData.get('title') as string,
+      description: formData.get('description') as string,
+      budget: Number(formData.get('budget')),
+      deadline: formData.get('deadline') as string,
+      status: 'active',
+      submissions: 0,
+    };
+
+    // Get existing projects from localStorage
+    const existingProjects = JSON.parse(localStorage.getItem('projects') || '[]');
+    
+    // Add new project
+    localStorage.setItem('projects', JSON.stringify([...existingProjects, newProject]));
+
+    toast({
+      title: "Success",
+      description: "Project created successfully",
+    });
+
+    navigate('/brand/dashboard');
+  };
 
   return (
     <div className="min-h-screen bg-gray-950 text-white p-4 sm:p-8">
@@ -21,10 +51,12 @@ const CreateProject = () => {
 
         <h1 className="text-3xl font-bold mb-8">Create New Project</h1>
         
-        <form className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium mb-2">Project Title</label>
             <Input 
+              name="title"
+              required
               placeholder="Enter project title"
               className="bg-gray-900 border-gray-800"
             />
@@ -33,6 +65,8 @@ const CreateProject = () => {
           <div>
             <label className="block text-sm font-medium mb-2">Description</label>
             <Textarea 
+              name="description"
+              required
               placeholder="Describe your project requirements"
               className="bg-gray-900 border-gray-800 min-h-[150px]"
             />
@@ -42,7 +76,10 @@ const CreateProject = () => {
             <div>
               <label className="block text-sm font-medium mb-2">Budget ($)</label>
               <Input 
+                name="budget"
                 type="number"
+                required
+                min="0"
                 placeholder="Enter budget"
                 className="bg-gray-900 border-gray-800"
               />
@@ -51,13 +88,15 @@ const CreateProject = () => {
             <div>
               <label className="block text-sm font-medium mb-2">Deadline</label>
               <Input 
+                name="deadline"
                 type="date"
+                required
                 className="bg-gray-900 border-gray-800"
               />
             </div>
           </div>
           
-          <Button className="w-full bg-blue-600 hover:bg-blue-700">
+          <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
             Create Project
           </Button>
         </form>
