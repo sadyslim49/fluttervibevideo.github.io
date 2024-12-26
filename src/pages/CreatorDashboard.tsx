@@ -14,6 +14,7 @@ const MOCK_VIDEOS = [
     comments: 45,
     earnings: 500,
     status: "approved",
+    brand: "Summer Vibes",
   },
   {
     id: "2",
@@ -24,6 +25,7 @@ const MOCK_VIDEOS = [
     comments: 23,
     earnings: 300,
     status: "pending",
+    brand: "Nature Collection",
   },
 ];
 

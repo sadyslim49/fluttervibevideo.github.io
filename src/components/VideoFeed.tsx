@@ -13,6 +13,7 @@ const MOCK_VIDEOS = [
     caption: 'Living that neon life ✨',
     likes: 1234,
     comments: 45,
+    brand: 'Neon Fashion',
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const MOCK_VIDEOS = [
     caption: 'Spring is here! 🌸',
     likes: 892,
     comments: 23,
+    brand: 'Nature Collection',
   },
 ];
 
