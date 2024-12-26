@@ -15,6 +15,12 @@ const MOCK_VIDEOS = [
     earnings: 500,
     status: "approved",
     brand: "Summer Vibes",
+    creatorProfile: {
+      name: "Creative Studio",
+      followers: "45.2K",
+      bio: "Creating amazing content for amazing brands ✨",
+      profilePic: "https://i.pravatar.cc/150?img=3"
+    }
   },
   {
     id: "2",
@@ -26,6 +32,12 @@ const MOCK_VIDEOS = [
     earnings: 300,
     status: "pending",
     brand: "Nature Collection",
+    creatorProfile: {
+      name: "Creative Studio",
+      followers: "45.2K",
+      bio: "Creating amazing content for amazing brands ✨",
+      profilePic: "https://i.pravatar.cc/150?img=3"
+    }
   },
 ];
 
