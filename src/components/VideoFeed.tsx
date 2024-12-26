@@ -14,6 +14,14 @@ const MOCK_VIDEOS = [
     likes: 1234,
     comments: 45,
     brand: 'Neon Fashion',
+    products: [
+      {
+        id: 'p1',
+        name: 'Neon LED Jacket',
+        price: 129.99,
+        url: 'https://example.com/neon-jacket',
+      }
+    ]
   },
   {
     id: 2,
@@ -23,6 +31,14 @@ const MOCK_VIDEOS = [
     likes: 892,
     comments: 23,
     brand: 'Nature Collection',
+    products: [
+      {
+        id: 'p2',
+        name: 'Eco-Friendly T-Shirt',
+        price: 34.99,
+        url: 'https://example.com/eco-shirt',
+      }
+    ]
   },
 ];
 

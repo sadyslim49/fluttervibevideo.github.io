@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Heart, MessageCircle, Share2, ShoppingBag } from 'lucide-react';
 import { Button } from './ui/button';
+import { useToast } from './ui/use-toast';
 
 interface VideoCardProps {
   video: {
@@ -24,6 +25,7 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showProducts, setShowProducts] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     if (isVisible && videoRef.current) {
@@ -48,6 +50,22 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
     }
   };
 
+  const handleProductClick = (productUrl: string) => {
+    window.open(productUrl, '_blank');
+    toast({
+      title: "Opening product page",
+      description: "Redirecting you to the product details",
+    });
+  };
+
+  const handleVideoClick = () => {
+    if (video.products && video.products.length > 0) {
+      handleProductClick(video.products[0].url);
+    } else {
+      togglePlay();
+    }
+  };
+
   return (
     <div className="h-screen w-full relative snap-start">
       {/* Brand header - only shows when video is visible */}
@@ -60,11 +78,11 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
       <video
         ref={videoRef}
         src={video.url}
-        className="h-full w-full object-cover"
+        className="h-full w-full object-cover cursor-pointer"
         loop
         muted
         playsInline
-        onClick={togglePlay}
+        onClick={handleVideoClick}
       />
       
       {/* Gradient overlays */}
@@ -80,17 +98,15 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
       {showProducts && video.products && (
         <div className="absolute left-4 right-16 bottom-32 space-y-2">
           {video.products.map((product) => (
-            <a
+            <button
               key={product.id}
-              href={product.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center bg-black/50 backdrop-blur-sm rounded-lg p-2 text-white hover:bg-black/70 transition-colors"
+              onClick={() => handleProductClick(product.url)}
+              className="flex items-center w-full bg-black/50 backdrop-blur-sm rounded-lg p-2 text-white hover:bg-black/70 transition-colors"
             >
               <ShoppingBag className="h-4 w-4 mr-2" />
               <span className="flex-1">{product.name}</span>
               <span className="font-bold">${product.price}</span>
-            </a>
+            </button>
           ))}
         </div>
       )}
