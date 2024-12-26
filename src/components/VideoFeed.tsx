@@ -14,12 +14,24 @@ const MOCK_VIDEOS = [
     likes: 1234,
     comments: 45,
     brand: 'Neon Fashion',
+    creatorProfile: {
+      name: 'Neon Vibes',
+      followers: '125K',
+      bio: 'Fashion & LED enthusiast | NYC 🗽',
+      profilePic: 'https://i.pravatar.cc/150?img=1'
+    },
     products: [
       {
         id: 'p1',
-        name: 'Neon LED Jacket',
-        price: 129.99,
-        url: 'https://example.com/neon-jacket',
+        name: 'LED Light Strip',
+        price: 19.99,
+        url: 'https://www.amazon.com/Govee-Compatible-Assistant-Multicolor-Decoration/dp/B07N1CMGQQ/',
+      },
+      {
+        id: 'p2',
+        name: 'LED Face Mask',
+        price: 29.99,
+        url: 'https://www.amazon.com/NEWKEY-Therapy-Colors-Facial-Treatment/dp/B07RRX3P3W/',
       }
     ]
   },
@@ -31,12 +43,24 @@ const MOCK_VIDEOS = [
     likes: 892,
     comments: 23,
     brand: 'Nature Collection',
+    creatorProfile: {
+      name: 'Nature Lover',
+      followers: '89K',
+      bio: 'Sustainable fashion | Earth first 🌍',
+      profilePic: 'https://i.pravatar.cc/150?img=2'
+    },
     products: [
       {
-        id: 'p2',
-        name: 'Eco-Friendly T-Shirt',
-        price: 34.99,
-        url: 'https://example.com/eco-shirt',
+        id: 'p3',
+        name: 'Eco-Friendly Water Bottle',
+        price: 24.99,
+        url: 'https://www.amazon.com/Simple-Modern-Insulated-Stainless-Leakproof/dp/B07TMVMQ9V/',
+      },
+      {
+        id: 'p4',
+        name: 'Bamboo Cutlery Set',
+        price: 15.99,
+        url: 'https://www.amazon.com/Bamboo-Utensils-Cutlery-Biodegradable-Eco-Friendly/dp/B07S2RN1MS/',
       }
     ]
   },

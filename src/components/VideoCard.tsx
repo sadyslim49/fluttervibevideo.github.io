@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Heart, MessageCircle, Share2, ShoppingBag } from 'lucide-react';
+import { Heart, MessageCircle, Share2, ShoppingBag, User } from 'lucide-react';
 import { Button } from './ui/button';
 import { useToast } from './ui/use-toast';
 
@@ -11,6 +11,12 @@ interface VideoCardProps {
     likes: number;
     comments: number;
     brand: string;
+    creatorProfile: {
+      name: string;
+      followers: string;
+      bio: string;
+      profilePic: string;
+    };
     products?: Array<{
       id: string;
       name: string;
@@ -25,6 +31,7 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showProducts, setShowProducts] = useState(false);
+  const [showCreatorProfile, setShowCreatorProfile] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -36,6 +43,7 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
       videoRef.current.pause();
       setIsPlaying(false);
       setShowProducts(false);
+      setShowCreatorProfile(false);
     }
   }, [isVisible]);
 
@@ -66,6 +74,10 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
     }
   };
 
+  const toggleCreatorProfile = () => {
+    setShowCreatorProfile(!showCreatorProfile);
+  };
+
   return (
     <div className="h-screen w-full relative snap-start">
       {/* Brand header - only shows when video is visible */}
@@ -94,7 +106,28 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
         <p className="text-sm opacity-90">{video.caption}</p>
       </div>
 
-      {/* Product links - only show when video is visible */}
+      {/* Creator Profile Modal */}
+      {showCreatorProfile && (
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm p-4 flex flex-col items-center justify-center text-white">
+          <img 
+            src={video.creatorProfile.profilePic} 
+            alt={video.creatorProfile.name}
+            className="w-24 h-24 rounded-full mb-4"
+          />
+          <h2 className="text-xl font-bold mb-2">{video.creatorProfile.name}</h2>
+          <p className="text-sm mb-2">{video.creatorProfile.followers} followers</p>
+          <p className="text-sm text-center mb-4">{video.creatorProfile.bio}</p>
+          <Button 
+            variant="outline" 
+            onClick={toggleCreatorProfile}
+            className="bg-white/10 hover:bg-white/20"
+          >
+            Close
+          </Button>
+        </div>
+      )}
+
+      {/* Product links */}
       {showProducts && video.products && (
         <div className="absolute left-4 right-16 bottom-32 space-y-2">
           {video.products.map((product) => (
@@ -113,6 +146,18 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
 
       {/* Interaction buttons */}
       <div className="absolute right-4 bottom-20 flex flex-col gap-4">
+        <div className="flex flex-col items-center">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="rounded-full bg-black/50 hover:bg-black/70 w-12 h-12"
+            onClick={toggleCreatorProfile}
+          >
+            <User className="h-6 w-6 text-white" />
+          </Button>
+          <span className="text-xs text-white mt-1">Profile</span>
+        </div>
+
         <div className="flex flex-col items-center">
           <Button variant="ghost" size="icon" className="rounded-full bg-black/50 hover:bg-black/70 w-12 h-12">
             <Heart className="h-6 w-6 text-white" />
