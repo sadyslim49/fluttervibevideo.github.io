@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Heart, MessageCircle, Share2 } from 'lucide-react';
+import { Heart, MessageCircle, Share2, ShoppingBag } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface VideoCardProps {
@@ -9,6 +9,13 @@ interface VideoCardProps {
     caption: string;
     likes: number;
     comments: number;
+    brand: string;
+    products?: Array<{
+      id: string;
+      name: string;
+      price: number;
+      url: string;
+    }>;
   };
   isVisible: boolean;
 }
@@ -16,14 +23,17 @@ interface VideoCardProps {
 const VideoCard = ({ video, isVisible }: VideoCardProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showProducts, setShowProducts] = useState(false);
 
   useEffect(() => {
     if (isVisible && videoRef.current) {
       videoRef.current.play();
       setIsPlaying(true);
+      setShowProducts(true);
     } else if (videoRef.current) {
       videoRef.current.pause();
       setIsPlaying(false);
+      setShowProducts(false);
     }
   }, [isVisible]);
 
@@ -40,6 +50,13 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
 
   return (
     <div className="h-screen w-full relative snap-start">
+      {/* Brand header - only shows when video is visible */}
+      {isVisible && (
+        <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-black/70 to-transparent p-4">
+          <h1 className="text-white font-bold text-xl">{video.brand}</h1>
+        </div>
+      )}
+
       <video
         ref={videoRef}
         src={video.url}
@@ -50,7 +67,7 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
         onClick={togglePlay}
       />
       
-      {/* Gradient overlay */}
+      {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
 
       {/* Video info */}
@@ -58,6 +75,25 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
         <h2 className="font-bold text-lg">{video.username}</h2>
         <p className="text-sm opacity-90">{video.caption}</p>
       </div>
+
+      {/* Product links - only show when video is visible */}
+      {showProducts && video.products && (
+        <div className="absolute left-4 right-16 bottom-32 space-y-2">
+          {video.products.map((product) => (
+            <a
+              key={product.id}
+              href={product.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center bg-black/50 backdrop-blur-sm rounded-lg p-2 text-white hover:bg-black/70 transition-colors"
+            >
+              <ShoppingBag className="h-4 w-4 mr-2" />
+              <span className="flex-1">{product.name}</span>
+              <span className="font-bold">${product.price}</span>
+            </a>
+          ))}
+        </div>
+      )}
 
       {/* Interaction buttons */}
       <div className="absolute right-4 bottom-20 flex flex-col gap-4">
