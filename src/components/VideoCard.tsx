@@ -104,6 +104,14 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
       <div className="absolute bottom-4 left-4 text-white">
         <h2 className="font-bold text-lg">{video.username}</h2>
         <p className="text-sm opacity-90">{video.caption}</p>
+        <a 
+          href={video.products?.[0]?.url || 'https://www.amazon.com'} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-sm text-pink-500 hover:text-pink-400 transition-colors mt-2 inline-block"
+        >
+          Shop Now
+        </a>
       </div>
 
       {/* Creator Profile Modal */}
