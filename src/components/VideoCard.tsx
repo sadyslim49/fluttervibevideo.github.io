@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Heart, MessageCircle, Share2, ShoppingBag, User } from 'lucide-react';
+import { Heart, MessageCircle, Star, ShoppingBag, User } from 'lucide-react';
 import { Button } from './ui/button';
 import { useToast } from './ui/use-toast';
 
@@ -182,9 +182,9 @@ const VideoCard = ({ video, isVisible }: VideoCardProps) => {
         
         <div className="flex flex-col items-center">
           <Button variant="ghost" size="icon" className="rounded-full bg-black/50 hover:bg-black/70 w-12 h-12">
-            <Share2 className="h-6 w-6 text-white" />
+            <Star className="h-6 w-6 text-white" />
           </Button>
-          <span className="text-xs text-white mt-1">Share</span>
+          <span className="text-xs text-white mt-1">Reviews</span>
         </div>
       </div>
     </div>
