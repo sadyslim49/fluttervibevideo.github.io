@@ -8,88 +8,88 @@ import { useToast } from './ui/use-toast';
 const MOCK_VIDEOS = [
   {
     id: 1,
-    url: 'https://player.vimeo.com/external/373839467.sd.mp4?s=39df58c1f8c16c0c294cca98c58c858e0c0f4a31&profile_id=164&oauth2_token_id=57447761',
-    username: '@techreviewer',
-    caption: 'Latest smart gadgets for your home 🏠✨',
-    likes: 1534,
-    comments: 89,
-    brand: 'Smart Home Tech',
+    url: 'https://player.vimeo.com/progressive_redirect/playback/735428933/rendition/720p/file.mp4?loc=external&oauth2_token_id=57447761&signature=55b89fcd1b9f4a8e8c0f0f3f8c5cc38ec2f0b0e8a7749e1c03b0c0eee00c6f3c',
+    username: '@techreview',
+    caption: 'Unboxing the latest smartphone - amazing camera quality! 📱✨',
+    likes: 2534,
+    comments: 189,
+    brand: 'TechGear',
     creatorProfile: {
-      name: 'Tech Reviewer',
-      followers: '250K',
-      bio: 'Reviewing the latest in tech | Smart home enthusiast 🏠',
-      profilePic: 'https://i.pravatar.cc/150?img=3'
+      name: 'Tech Review Pro',
+      followers: '450K',
+      bio: 'Daily tech reviews and unboxing | Smartphone expert 📱',
+      profilePic: 'https://i.pravatar.cc/150?img=12'
     },
     products: [
       {
         id: 'p1',
-        name: 'Smart Home Hub',
-        price: 129.99,
-        url: 'https://www.amazon.com/smart-home-hub',
+        name: 'Latest Smartphone Pro Max',
+        price: 999.99,
+        url: 'https://www.amazon.com/smartphone',
       },
       {
         id: 'p2',
-        name: 'WiFi LED Bulbs (4-pack)',
-        price: 49.99,
-        url: 'https://www.amazon.com/smart-bulbs',
+        name: 'Premium Phone Case',
+        price: 29.99,
+        url: 'https://www.amazon.com/phone-case',
       }
     ]
   },
   {
     id: 2,
-    url: 'https://player.vimeo.com/external/474409562.sd.mp4?s=e41e146a2256cda7e7e47e4e19ce9cf4893ab497&profile_id=164&oauth2_token_id=57447761',
-    username: '@beautyguru',
-    caption: 'Must-have skincare products for glowing skin ✨',
-    likes: 2892,
-    comments: 156,
-    brand: 'Glow Beauty',
+    url: 'https://player.vimeo.com/progressive_redirect/playback/748627659/rendition/720p/file.mp4?loc=external&oauth2_token_id=57447761&signature=5e1c5f7f7f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f',
+    username: '@makeupmaster',
+    caption: 'Get ready with me using this amazing new foundation! 💄✨',
+    likes: 3892,
+    comments: 256,
+    brand: 'BeautyGlow',
     creatorProfile: {
-      name: 'Beauty Guru',
-      followers: '180K',
-      bio: 'Sharing beauty secrets | Skincare specialist 💫',
-      profilePic: 'https://i.pravatar.cc/150?img=4'
+      name: 'Makeup Master',
+      followers: '280K',
+      bio: 'Professional MUA | Beauty tips & tutorials 💄',
+      profilePic: 'https://i.pravatar.cc/150?img=9'
     },
     products: [
       {
         id: 'p3',
-        name: 'Vitamin C Serum',
-        price: 34.99,
-        url: 'https://www.amazon.com/vitamin-c-serum',
+        name: 'Luminous Foundation',
+        price: 42.99,
+        url: 'https://www.amazon.com/foundation',
       },
       {
         id: 'p4',
-        name: 'Hydrating Moisturizer',
-        price: 28.99,
-        url: 'https://www.amazon.com/moisturizer',
+        name: 'Pro Makeup Brush Set',
+        price: 35.99,
+        url: 'https://www.amazon.com/brushes',
       }
     ]
   },
   {
     id: 3,
-    url: 'https://player.vimeo.com/external/403295268.sd.mp4?s=3446f36ca57399e7bf3e7e6d6784c9a6849ec155&profile_id=164&oauth2_token_id=57447761',
-    username: '@fitnessgear',
-    caption: 'Essential workout equipment for home fitness 💪',
-    likes: 1756,
-    comments: 92,
-    brand: 'FitGear Pro',
+    url: 'https://player.vimeo.com/progressive_redirect/playback/742593303/rendition/720p/file.mp4?loc=external&oauth2_token_id=57447761&signature=6c6f6e6f6e6f6e6f6e6f6e6f6e6f6e6f6e6f6e6f6e6f6e6f6e6f6e6f6e6f6e',
+    username: '@kitchenguru',
+    caption: 'Making healthy smoothies with this amazing new blender! 🥤🍓',
+    likes: 1956,
+    comments: 142,
+    brand: 'KitchenPro',
     creatorProfile: {
-      name: 'Fitness Pro',
-      followers: '120K',
-      bio: 'Home workout specialist | Fitness equipment reviews 🏋️‍♂️',
-      profilePic: 'https://i.pravatar.cc/150?img=5'
+      name: 'Kitchen Guru',
+      followers: '180K',
+      bio: 'Healthy recipes & kitchen gadget reviews 🥗',
+      profilePic: 'https://i.pravatar.cc/150?img=7'
     },
     products: [
       {
         id: 'p5',
-        name: 'Resistance Bands Set',
-        price: 24.99,
-        url: 'https://www.amazon.com/resistance-bands',
+        name: 'Pro Blender 3000',
+        price: 199.99,
+        url: 'https://www.amazon.com/blender',
       },
       {
         id: 'p6',
-        name: 'Adjustable Dumbbells',
-        price: 149.99,
-        url: 'https://www.amazon.com/dumbbells',
+        name: 'Smoothie Recipe Book',
+        price: 24.99,
+        url: 'https://www.amazon.com/recipe-book',
       }
     ]
   }
