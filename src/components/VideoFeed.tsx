@@ -8,62 +8,91 @@ import { useToast } from './ui/use-toast';
 const MOCK_VIDEOS = [
   {
     id: 1,
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-neon-sign-1232-large.mp4',
-    username: '@neon_vibes',
-    caption: 'Living that neon life ✨',
-    likes: 1234,
-    comments: 45,
-    brand: 'Neon Fashion',
+    url: 'https://player.vimeo.com/external/373839467.sd.mp4?s=39df58c1f8c16c0c294cca98c58c858e0c0f4a31&profile_id=164&oauth2_token_id=57447761',
+    username: '@techreviewer',
+    caption: 'Latest smart gadgets for your home 🏠✨',
+    likes: 1534,
+    comments: 89,
+    brand: 'Smart Home Tech',
     creatorProfile: {
-      name: 'Neon Vibes',
-      followers: '125K',
-      bio: 'Fashion & LED enthusiast | NYC 🗽',
-      profilePic: 'https://i.pravatar.cc/150?img=1'
+      name: 'Tech Reviewer',
+      followers: '250K',
+      bio: 'Reviewing the latest in tech | Smart home enthusiast 🏠',
+      profilePic: 'https://i.pravatar.cc/150?img=3'
     },
     products: [
       {
         id: 'p1',
-        name: 'LED Light Strip',
-        price: 19.99,
-        url: 'https://www.amazon.com/Govee-Compatible-Assistant-Multicolor-Decoration/dp/B07N1CMGQQ/',
+        name: 'Smart Home Hub',
+        price: 129.99,
+        url: 'https://www.amazon.com/smart-home-hub',
       },
       {
         id: 'p2',
-        name: 'LED Face Mask',
-        price: 29.99,
-        url: 'https://www.amazon.com/NEWKEY-Therapy-Colors-Facial-Treatment/dp/B07RRX3P3W/',
+        name: 'WiFi LED Bulbs (4-pack)',
+        price: 49.99,
+        url: 'https://www.amazon.com/smart-bulbs',
       }
     ]
   },
   {
     id: 2,
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4',
-    username: '@nature_lover',
-    caption: 'Spring is here! 🌸',
-    likes: 892,
-    comments: 23,
-    brand: 'Nature Collection',
+    url: 'https://player.vimeo.com/external/474409562.sd.mp4?s=e41e146a2256cda7e7e47e4e19ce9cf4893ab497&profile_id=164&oauth2_token_id=57447761',
+    username: '@beautyguru',
+    caption: 'Must-have skincare products for glowing skin ✨',
+    likes: 2892,
+    comments: 156,
+    brand: 'Glow Beauty',
     creatorProfile: {
-      name: 'Nature Lover',
-      followers: '89K',
-      bio: 'Sustainable fashion | Earth first 🌍',
-      profilePic: 'https://i.pravatar.cc/150?img=2'
+      name: 'Beauty Guru',
+      followers: '180K',
+      bio: 'Sharing beauty secrets | Skincare specialist 💫',
+      profilePic: 'https://i.pravatar.cc/150?img=4'
     },
     products: [
       {
         id: 'p3',
-        name: 'Eco-Friendly Water Bottle',
-        price: 24.99,
-        url: 'https://www.amazon.com/Simple-Modern-Insulated-Stainless-Leakproof/dp/B07TMVMQ9V/',
+        name: 'Vitamin C Serum',
+        price: 34.99,
+        url: 'https://www.amazon.com/vitamin-c-serum',
       },
       {
         id: 'p4',
-        name: 'Bamboo Cutlery Set',
-        price: 15.99,
-        url: 'https://www.amazon.com/Bamboo-Utensils-Cutlery-Biodegradable-Eco-Friendly/dp/B07S2RN1MS/',
+        name: 'Hydrating Moisturizer',
+        price: 28.99,
+        url: 'https://www.amazon.com/moisturizer',
       }
     ]
   },
+  {
+    id: 3,
+    url: 'https://player.vimeo.com/external/403295268.sd.mp4?s=3446f36ca57399e7bf3e7e6d6784c9a6849ec155&profile_id=164&oauth2_token_id=57447761',
+    username: '@fitnessgear',
+    caption: 'Essential workout equipment for home fitness 💪',
+    likes: 1756,
+    comments: 92,
+    brand: 'FitGear Pro',
+    creatorProfile: {
+      name: 'Fitness Pro',
+      followers: '120K',
+      bio: 'Home workout specialist | Fitness equipment reviews 🏋️‍♂️',
+      profilePic: 'https://i.pravatar.cc/150?img=5'
+    },
+    products: [
+      {
+        id: 'p5',
+        name: 'Resistance Bands Set',
+        price: 24.99,
+        url: 'https://www.amazon.com/resistance-bands',
+      },
+      {
+        id: 'p6',
+        name: 'Adjustable Dumbbells',
+        price: 149.99,
+        url: 'https://www.amazon.com/dumbbells',
+      }
+    ]
+  }
 ];
 
 const VideoFeed = () => {
