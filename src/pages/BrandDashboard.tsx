@@ -13,13 +13,48 @@ interface Project {
   deadline: string;
 }
 
+const SAMPLE_PROJECTS: Project[] = [
+  {
+    id: "1",
+    title: "Product Review: Latest Gaming Headset",
+    budget: 500,
+    submissions: 3,
+    status: "active",
+    deadline: "2024-04-15",
+  },
+  {
+    id: "2",
+    title: "Skincare Product Unboxing Series",
+    budget: 750,
+    submissions: 5,
+    status: "review",
+    deadline: "2024-04-20",
+  },
+  {
+    id: "3",
+    title: "Tech Gadget Comparison Video",
+    budget: 1000,
+    submissions: 2,
+    status: "active",
+    deadline: "2024-04-25",
+  },
+  {
+    id: "4",
+    title: "Fitness Equipment Demo Campaign",
+    budget: 800,
+    submissions: 4,
+    status: "review",
+    deadline: "2024-04-30",
+  }
+];
+
 const BrandDashboard = () => {
   const navigate = useNavigate();
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     const storedProjects = JSON.parse(localStorage.getItem('projects') || '[]');
-    setProjects(storedProjects);
+    setProjects(storedProjects.length > 0 ? storedProjects : SAMPLE_PROJECTS);
   }, []);
 
   return (
@@ -45,17 +80,11 @@ const BrandDashboard = () => {
           </div>
         </div>
 
-        {projects.length === 0 ? (
-          <div className="text-center text-gray-400 mt-8">
-            No projects yet. Create your first project!
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
       </div>
     </div>
   );
